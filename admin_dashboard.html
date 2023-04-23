@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Welcome to the Admin Dashboard</h1>
+  <p>User ID: astha@gmail.com</p>
+  <p>Number of Correct Answers: <span id="correct-answers"></span></p>
+  <p>Current Question Index: <span id="current-question-index"></span></p>
+  <p>Completed: <span id="completed"></span></p>
+  <a href="#" id="logout-btn">Logout</a>
+  <script src="script.js"></script>
+  <script>
+    // Retrieve logged-in user's data from Local Storage
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    // Display user data
+document.getElementById("correct-answers").textContent = loggedInUser.correctAnswers;
+document.getElementById("current-question-index").textContent = loggedInUser.currentQuestionIndex;
+document.getElementById("completed").textContent = loggedInUser.completed ? "Yes" : "No";
+
+// Listen for logout button click event
+document.getElementById("logout-btn").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent default link behavior
+
+  // Remove user data from Local Storage and redirect to login page
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "admin_dashboard.php";
+});
+</script>
+</body>
+</html>

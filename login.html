@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="login-page">
+	<div class="login-container">
+		<h1>Login</h1>
+		<form>
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" required>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+			<button type="submit">Login</button>
+			<p>Don't have an account? <a href="signup.html">Sign up</a></p>
+		</form>
+	</div>
+
+	<script>
+		// Get the form element
+		const form = document.querySelector('form');
+
+		// Attach event listener to form submission
+		form.addEventListener('submit', function(event) {
+			event.preventDefault(); // Prevent the form from submitting normally
+
+			// Get the values of the username and password fields
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+
+			// Perform validation (e.g. check if username and password are correct)
+
+			// If validation passes, redirect to the dashboard page
+			window.location.href = 'puzzle_starts_here.html';
+		});
+	</script>
+</body>
+</html>
